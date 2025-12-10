@@ -1,0 +1,44 @@
+@use 'variables' as *;
+
+@mixin glass-panel {
+  background: $bg-card;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: $glass-border;
+  border-radius: 16px;
+  padding: 2rem;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    // background: $bg-card-hover;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px #4ced8216
+      /*rgba(0, 242, 255, 0.1)*/
+    ;
+  }
+}
+
+@mixin text-gradient {
+  background: $color-4;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@mixin btn-primary {
+  background: #697565;
+  color: $color-1;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px
+      /*rgba(0, 242, 255, 0.4),*/
+      rgba(76, 237, 130, 0.2);
+  }
+}

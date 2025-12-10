@@ -1,0 +1,28 @@
+@use 'variables' as *;
+
+
+.glass-button {
+  width: 100%;
+  // background: rgba(255, 255, 255, 0.1);
+  // border: 1px solid rgba(255, 255, 255, 0.2);
+  // color: white;
+  // padding: 12px 24px;
+  // border-radius: 8px;
+  // cursor: pointer;
+  // backdrop-filter: blur(8px);
+  // transition: all 0.3s ease;
+
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.2px);
+  -webkit-backdrop-filter: blur(5.2px);
+  border: 1px solid rgba(255, 255, 255, 0.41);
+}
+
+.glass-button:hover {
+  color: #e1ffc2;
+  // background: $color-2;
+  backdrop-filter: blur(10px);
+}

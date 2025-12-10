@@ -1,23 +1,59 @@
-$color-1: #222831;
-$color-2: #393E46;
-$color-3: #948979;
-$color-4: #DFD0B8;
-$color-5: #183D3D;
+:root {
+  --color-1: #F5EFE6;
+  --color-2: #E8DFCA;
+  --color-3: #6D94C5;
+  --color-4: #50a0e7;
+  --color-5: #5D866C;
+  --bg: #F5EFE6;
+  --text-primary: #111;
+  --text-secondary: #000000b3;
+
+  --bg-violet: #EBD3F8;
+  --bg-dark: #ffffff;
+  --bg-card: rgba(0, 0, 0, 0.05);
+  --bg-card-hover: rgba(0, 0, 0, 0.1);
+  --primary-accent: #5D866C;
+  --glass-border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme {
+  --color-1: #222831;
+  --color-2: #393E46;
+  --color-3: #948979;
+  --color-4: #DFD0B8;
+  --color-5: #183D3D;
+  --bg: #222831;
+  --text-primary: #fff;
+  --text-secondary: #ffffffb3;
+
+  --bg-violet: #2E073F;
+  --bg-dark: #050505;
+  --bg-card: rgba(255, 255, 255, 0.05);
+  --bg-card-hover: #22283128;
+  --primary-accent: #E1FFC2;
+  --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+$color-1: var(--color-1);
+$color-2: var(--color-2);
+$color-3: var(--color-3);
+$color-4: var(--color-4);
+$color-5: var(--color-5);
 
 /* Modern Dark Theme Palette */
-$bg: #222831;
-$bg-violet: #2E073F;
-$bg-dark: #050505;
-$bg-card: rgba(255, 255, 255, 0.05);
-$bg-card-hover: #22283128;
+$bg: var(--bg);
+$bg-violet: var(--bg-violet);
+$bg-dark: var(--bg-dark);
+$bg-card: var(--bg-card);
+$bg-card-hover: var(--bg-card-hover);
 
-$primary-accent: #E1FFC2; // Neon Cyan
+$primary-accent: var(--primary-accent); // Neon Cyan
 $secondary-accent: $color-4; // Neon Purple
-$text-primary: #ffffff;
-$text-secondary: rgba(255, 255, 255, 0.7);
+$text-primary: var(--text-primary);
+$text-secondary: var(--text-secondary);
 
 $gradient-main: #e1ffc2;
 //  #EBD3F8; // linear-gradient(135deg, $primary-accent, $secondary-accent);
-$glass-border: 1px solid rgba(255, 255, 255, 0.1);
+$glass-border: var(--glass-border);
 
 // $color-6: #F9FAFB;

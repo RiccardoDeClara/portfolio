@@ -42,3 +42,10 @@
       rgba(76, 237, 130, 0.2);
   }
 }
+
+@mixin btn-secondary {
+  padding: 1rem 2rem;
+  border: 2px solid var(--color-3);
+  border-radius: 50px;
+  font-weight: 600;
+}

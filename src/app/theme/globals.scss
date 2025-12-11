@@ -91,6 +91,10 @@ h6 {
   }
 }
 
+.btn-secondary {
+  @include btn-secondary;
+}
+
 .main-header {
   display: flex;
   justify-content: space-between;
@@ -148,8 +152,8 @@ h6 {
   appearance: auto;
   padding-right: 0;
 
-  ::after {
-    content: '\25BC';
-    color: white;
-  }
+  // ::after {
+  //   content: '\25BC';
+  //   color: white;
+  // }
 }

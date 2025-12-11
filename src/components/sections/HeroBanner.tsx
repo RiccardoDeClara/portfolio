@@ -19,7 +19,7 @@ export default function HeroBanner() {
 
         <div className={'actions'}>
           <a href="#contact" className="btn-primary">Get In Touch</a>
-          <a href="#about" style={{ padding: '1rem 2rem', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '50px', fontWeight: 600 }}>
+          <a href="#about" className="btn-secondary">
             About Me
           </a>
         </div>

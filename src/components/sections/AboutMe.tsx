@@ -54,14 +54,11 @@ export default function AboutMe() {
             <h3 className={'detailTitle'}>Connect</h3>
             <div className={'links'}>
               <a href={cv} download>Download Resume
-                {/* <img src={downloa_icon} width="20px" /></a> */}
                 <i className="bi bi-cloud-arrow-down" style={{ fontSize: '25px' }}></i></a>
-              <a href={linkedin}>LinkedIn Profile
-                {/* <img src={link_download}/> */}<i className="bi bi-box-arrow-up-right" style={{ fontSize: '25px' }}></i>
+              <a href={linkedin}>LinkedIn Profile<i className="bi bi-box-arrow-up-right" style={{ fontSize: '25px' }}></i>
 
               </a>
               <a href={`mailto:${email}`}>email
-                {/* <img src={link_download} width="20px" /> */}
                 <i className="bi bi-envelope" style={{ fontSize: '25px' }}></i>
               </a>
             </div>

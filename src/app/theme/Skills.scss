@@ -1,8 +1,25 @@
 @use 'variables' as *;
 @use 'utilities' as *;
 
+#skills {
+  background-image: url('../../../public/WaveLine.svg');
+  overflow: visible;
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 9rem 0;
+  backdrop-filter: blur(10px);
+}
+
 .skills {
-  padding: 6rem 0;
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .content {
@@ -12,7 +29,7 @@
 .title {
   font-size: 2rem;
   margin-bottom: 0.5rem;
-  color: $primary-accent;
+  color: $text-primary;
 }
 
 .subtitle {

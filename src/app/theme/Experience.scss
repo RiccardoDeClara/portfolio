@@ -90,3 +90,50 @@
   border-radius: 4px;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+// Light mode overrides to make cards dark
+body:not(.dark-theme) {
+  .card-experience {
+    background: $color-2;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    // .company {
+    //   color: #fff;
+    // }
+
+    .role {
+      // color: #DFD0B8;
+      color: $color-5;
+    }
+
+    .description {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .tag {
+      // color: #fff;
+      background: $color-1;
+      border: 1px solid $color-3;
+    }
+  }
+}
+
+.tecnoteca-time {
+  color: $tecnoteca-time;
+  background: $time-bg;
+  backdrop-filter: blur($blur-filter);
+  -webkit-backdrop-filter: blur($blur-filter);
+  padding: 0.2rem 0.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.extark-time {
+  color: $extark-time;
+  background: $time-bg;
+  backdrop-filter: blur($blur-filter);
+  -webkit-backdrop-filter: blur($blur-filter);
+  padding: 0.2rem 0.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+}

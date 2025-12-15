@@ -6,14 +6,14 @@ import AboutMe from "../components/sections/AboutMe";
 import Experience from "../components/sections/Experience";
 import Skills from "../components/sections/Skills";
 import GetInTouch from "../components/sections/GetInTouch";
+import BlobCursor from "../hooks/BlobCursor";
 
 export default function Home() {
   return (
     <div className="container">
       <Header />
-
       <main>
-        <HeroBanner />
+        <BlobCursor />
         <div id="about"><AboutMe /></div>
         <div id="experience"><Experience /></div>
         <div id="skills"><Skills /></div>

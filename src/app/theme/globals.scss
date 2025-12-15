@@ -7,6 +7,7 @@
 @import 'Skills';
 @import 'HeroBanner';
 @import 'LightDark';
+@import 'BlobCursor';
 
 :root {
   --foreground-rgb: 255, 255, 255;
@@ -93,6 +94,10 @@ h6 {
 
 .btn-secondary {
   @include btn-secondary;
+
+  &:hover {
+    color: $connect-accent;
+  }
 }
 
 .main-header {
@@ -101,6 +106,8 @@ h6 {
   align-items: center;
   padding: 2rem 0;
   margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
 
   .logo {
     font-size: 2.5rem;
@@ -143,17 +150,22 @@ h6 {
   }
 }
 
+main>div {
+  position: relative;
+  z-index: 1;
+}
+
 #select-lang {
-  color: aliceblue;
+  color: $text-primary;
   background-color: $color-2;
   min-width: 55px;
   border: none;
   border-radius: 10px;
-  appearance: auto;
-  padding-right: 0;
-
-  // ::after {
-  //   content: '\25BC';
-  //   color: white;
-  // }
+  appearance: none;
+  padding-right: 1.5rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+  cursor: pointer;
 }

@@ -5,15 +5,20 @@
   --color-4: #50a0e7;
   --color-5: #5D866C;
   --bg: #F5EFE6;
-  --text-primary: #111;
+  --text-primary: #222428;
   --text-secondary: #000000b3;
 
   --bg-violet: #EBD3F8;
   --bg-dark: #ffffff;
   --bg-card: rgba(0, 0, 0, 0.05);
   --bg-card-hover: rgba(0, 0, 0, 0.1);
-  --primary-accent: #5D866C;
+  --primary-accent: #E1FFC2;
+  --connect-accent: #FF6700;
   --glass-border: 1px solid rgba(0, 0, 0, 0.1);
+  --tecnoteca-time: #222428; //#FFFAFA;
+  --extark-time: #222428;
+  --blur-filter: 5px;
+  --time-bg: rgba(255, 255, 255, 0.5);
 }
 
 body.dark-theme {
@@ -31,7 +36,12 @@ body.dark-theme {
   --bg-card: rgba(255, 255, 255, 0.05);
   --bg-card-hover: #22283128;
   --primary-accent: #E1FFC2;
+  --connect-accent: #E1FFC2;
   --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+  --tecnoteca-time: #50a0e7;
+  --extark-time: #5D866C;
+  --blur-filter: 0px;
+  --time-bg: transparent;
 }
 
 $color-1: var(--color-1);
@@ -39,6 +49,7 @@ $color-2: var(--color-2);
 $color-3: var(--color-3);
 $color-4: var(--color-4);
 $color-5: var(--color-5);
+$color-6: #F9FAFB;
 
 /* Modern Dark Theme Palette */
 $bg: var(--bg);
@@ -56,4 +67,9 @@ $gradient-main: #e1ffc2;
 //  #EBD3F8; // linear-gradient(135deg, $primary-accent, $secondary-accent);
 $glass-border: var(--glass-border);
 
-// $color-6: #F9FAFB;
+$tecnoteca-time: var(--tecnoteca-time);
+$extark-time: var(--extark-time);
+
+$blur-filter: var(--blur-filter);
+$time-bg: var(--time-bg);
+$connect-accent: var(--connect-accent);

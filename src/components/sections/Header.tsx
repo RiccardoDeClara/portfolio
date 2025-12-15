@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 
 export default function Header() {
-  const [theme, setTheme] = useState(false);
+  const [theme, setTheme] = useState(true);
 
   const handleThemeChange = () => {
     setTheme((prev) => !prev);
@@ -32,10 +32,12 @@ export default function Header() {
           <li className="d-flex">
             <i className="bi bi-translate px-1 d-flex align-items-center">
             </i>
-            <select id="select-lang" className="form-select form-select-sm">
-              <option value="en">EN</option>
-              <option value="it">IT</option>
-            </select>
+            <div className="select-wrapper">
+              <select id="select-lang" className="form-select form-select-sm">
+                <option value="en">EN</option>
+                <option value="it">IT</option>
+              </select>
+            </div>
           </li>
           <li onClick={handleThemeChange} className=''>
             <i className={`bi bi-sun-fill button-theme ${theme ? 'd-none' : ''}`} style={{ fontSize: '15px', padding: '5px' }}></i>

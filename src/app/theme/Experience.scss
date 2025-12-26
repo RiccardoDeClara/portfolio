@@ -87,22 +87,14 @@
   color: $text-primary;
   background: rgba(255, 255, 255, 0.05);
   padding: 0.2rem 0.6rem;
-  border-radius: 4px;
+  border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 // Light mode overrides to make cards dark
 body:not(.dark-theme) {
   .card-experience {
-    background: $color-2;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-
-    // .company {
-    //   color: #fff;
-    // }
-
     .role {
-      // color: #DFD0B8;
       color: $color-5;
     }
 
@@ -111,16 +103,14 @@ body:not(.dark-theme) {
     }
 
     .tag {
-      // color: #fff;
-      background: $color-1;
       border: 1px solid $color-3;
     }
   }
 }
 
 .tecnoteca-time {
-  color: $tecnoteca-time;
-  background: $time-bg;
+  color: #1976d2;
+  background: transparent;
   backdrop-filter: blur($blur-filter);
   -webkit-backdrop-filter: blur($blur-filter);
   padding: 0.2rem 0.5rem;
@@ -129,8 +119,8 @@ body:not(.dark-theme) {
 }
 
 .extark-time {
-  color: $extark-time;
-  background: $time-bg;
+  color: #5D866C;
+  background: transparent;
   backdrop-filter: blur($blur-filter);
   -webkit-backdrop-filter: blur($blur-filter);
   padding: 0.2rem 0.5rem;

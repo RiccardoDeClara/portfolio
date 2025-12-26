@@ -29,14 +29,14 @@ export interface BlobCursorProps {
 
 export default function BlobCursor({
   blobType = 'circle',
-  fillColor = '#524b6aff',
+  fillColor = '#128236ff',
   trailCount = 3,
-  sizes = [20, 75, 85],
-  innerSizes = [20, 35, 25],
+  sizes = [70, 50, 40],
+  innerSizes = [60, 70, 50],
   innerColor = 'rgba(255,255,255,0.8)',
   opacities = [0.6, 0.6, 0.6],
   shadowColor = 'rgba(0,0,0,0.75)',
-  shadowBlur = 10,
+  shadowBlur = 5,
   shadowOffsetX = 10,
   shadowOffsetY = 10,
   filterId = 'blob',
@@ -44,7 +44,7 @@ export default function BlobCursor({
   filterColorMatrixValues = '1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 35 -10',
   useFilter = true,
   fastDuration = 0.1,
-  slowDuration = 0.5,
+  slowDuration = 1.5,
   fastEase = 'power3.out',
   slowEase = 'power1.out',
   zIndex = 0
@@ -80,7 +80,7 @@ export default function BlobCursor({
     };
   }, [handleMove]);
 
-  console.log("BlobCursor");
+
 
   return (
     <div

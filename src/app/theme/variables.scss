@@ -4,7 +4,7 @@
   --color-3: #6D94C5;
   --color-4: #50a0e7;
   --color-5: #5D866C;
-  --bg: #F5EFE6;
+  --bg: linear-gradient(to right, #9796f0, #fbc7d4);
   --text-primary: #222428;
   --text-secondary: #000000b3;
 
@@ -15,10 +15,11 @@
   --primary-accent: #E1FFC2;
   --connect-accent: #FF6700;
   --glass-border: 1px solid rgba(0, 0, 0, 0.1);
-  --tecnoteca-time: #222428; //#FFFAFA;
+  --tecnoteca-time: #222428;
   --extark-time: #222428;
   --blur-filter: 5px;
-  --time-bg: rgba(255, 255, 255, 0.5);
+  --skillItemBg: #97979729;
+  --skillItemBorder: 1px solid #ffffff;
 }
 
 body.dark-theme {
@@ -41,7 +42,8 @@ body.dark-theme {
   --tecnoteca-time: #50a0e7;
   --extark-time: #5D866C;
   --blur-filter: 0px;
-  --time-bg: transparent;
+  --skillItemBg: #ffffff08;
+  --skillItemBorder: 1px solid #ffffff1a;
 }
 
 $color-1: var(--color-1);
@@ -71,5 +73,7 @@ $tecnoteca-time: var(--tecnoteca-time);
 $extark-time: var(--extark-time);
 
 $blur-filter: var(--blur-filter);
-$time-bg: var(--time-bg);
 $connect-accent: var(--connect-accent);
+
+$skillItemBg: var(--skillItemBg);
+$skillItemBorder: var(--skillItemBorder);

@@ -2,7 +2,6 @@
 @use 'utilities' as *;
 
 #skills {
-  background-image: url('../../../public/WaveLine.svg');
   overflow: visible;
   background-size: cover;
   background-position: center;
@@ -13,7 +12,6 @@
   margin-left: -50vw;
   margin-right: -50vw;
   padding: 9rem 0;
-  backdrop-filter: blur(10px);
 }
 
 .skills {
@@ -62,11 +60,11 @@
 }
 
 .skillItem {
-  background: rgba(255, 255, 255, 0.03);
+  background: $skillItemBg;
   padding: 0.8rem 1.5rem;
   border-radius: 50px;
   font-size: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: $skillItemBorder;
   transition: all 0.3s ease;
   cursor: default;
 

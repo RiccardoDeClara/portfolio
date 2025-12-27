@@ -29,7 +29,7 @@ export default function Experience() {
           trigger: containerRef.current,
           start: "top center",
           end: "bottom center",
-          scrub: 6,
+          scrub: 4,
         }
       });
 

@@ -14,6 +14,7 @@ export default function GetInTouch() {
     const firstNameInput = form.elements.namedItem('firstName') as HTMLInputElement;
     const lastNameInput = form.elements.namedItem('lastName') as HTMLInputElement;
     const emailInput = form.elements.namedItem('email') as HTMLInputElement;
+    const phoneInput = form.elements.namedItem('phone') as HTMLInputElement;
     const companyInput = form.elements.namedItem('company') as HTMLInputElement;
     const messageInput = form.elements.namedItem('message') as HTMLTextAreaElement;
 
@@ -21,6 +22,7 @@ export default function GetInTouch() {
       firstName: firstNameInput.value,
       lastName: lastNameInput.value,
       email: emailInput.value,
+      phone: phoneInput.value,
       company: companyInput.value,
       message: messageInput.value,
     };
@@ -56,7 +58,7 @@ export default function GetInTouch() {
         <form onSubmit={handleSubmit}>
           <div className={'formGroup'}>
             <input type="text" id="firstName" name="firstName" placeholder=" " required />
-            <label htmlFor="firstName">First name</label>
+            <label htmlFor="firstName">First name<sup>*</sup></label>
           </div>
 
           <div className={'formGroup'}>
@@ -66,7 +68,12 @@ export default function GetInTouch() {
 
           <div className={'formGroup'}>
             <input type="email" id="email" name="email" placeholder=" " required />
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">Email<sup>*</sup></label>
+          </div>
+
+          <div className={'formGroup'}>
+            <input type="text" id="phone" name="phone" placeholder=" " />
+            <label htmlFor="phone">Phone</label>
           </div>
 
           <div className={'formGroup'}>
@@ -75,7 +82,7 @@ export default function GetInTouch() {
           </div>
 
           <div className={'formGroup'}>
-            <textarea id="message" name="message" placeholder=" " required></textarea>
+            <textarea id="message" name="message" placeholder=" "></textarea>
             <label htmlFor="message">Message</label>
           </div>
 

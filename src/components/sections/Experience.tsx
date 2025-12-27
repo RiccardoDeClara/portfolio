@@ -1,4 +1,5 @@
 "use client";
+import React, { useLayoutEffect, useRef } from 'react';
 import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
@@ -6,29 +7,61 @@ import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import CodeIcon from '@mui/icons-material/Code';
-import FastfoodIcon from '@mui/icons-material/Fastfood';
 import LaptopMacIcon from '@mui/icons-material/LaptopMac';
-import HotelIcon from '@mui/icons-material/Hotel';
-import RepeatIcon from '@mui/icons-material/Repeat';
 import Typography from '@mui/material/Typography';
 import TimelineOppositeContent, {
   timelineOppositeContentClasses,
 } from '@mui/lab/TimelineOppositeContent';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Experience() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const covers = gsap.utils.toArray('.white-cover');
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top center",
+          end: "bottom center",
+          scrub: 6,
+        }
+      });
+
+      tl.to(covers, {
+        scaleY: 0,
+        transformOrigin: "bottom center",
+        ease: "none",
+        stagger: 0.5
+      });
+
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  const whiteCoverStyle = {
+    position: 'absolute' as const,
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'black',
+    zIndex: 1
+  };
+
   return (
-    <section>
+    <section ref={containerRef}>
       <div className="section-header">
         <span>EXPERIENCE</span>
       </div>
       <Timeline position={'alternate'}
-        sx={{
-          // width: '100%',
-          // p: 0,
-          // [`& .${timelineOppositeContentClasses.root}`]: {
-          //   flex: 0.2,
-          // },
-        }}
+        sx={{}}
       >
         <TimelineItem className='w-lg-50'>
           <TimelineOppositeContent
@@ -38,11 +71,15 @@ export default function Experience() {
             <span className='tecnoteca-time'>2022 - Present</span>
           </TimelineOppositeContent>
           <TimelineSeparator>
-            <TimelineConnector sx={{ bgcolor: 'primary.main' }} />
+            <TimelineConnector sx={{ bgcolor: 'primary.main', position: 'relative' }}>
+              <span className="white-cover" style={whiteCoverStyle} />
+            </TimelineConnector>
             <TimelineDot color="primary" variant="outlined">
               <LaptopMacIcon />
             </TimelineDot>
-            <TimelineConnector sx={{ background: 'linear-gradient(90deg,rgba(25, 118, 210, 1) 0%, rgba(46, 125, 50, 1) 51%)' }} />
+            <TimelineConnector sx={{ background: 'linear-gradient(90deg,rgba(25, 118, 210, 1) 0%, rgba(46, 125, 50, 1) 51%)', position: 'relative' }}>
+              <span className="white-cover" style={whiteCoverStyle} />
+            </TimelineConnector>
           </TimelineSeparator>
           <TimelineContent sx={{ py: '12px', px: 2 }}>
             <Typography component="div">
@@ -83,13 +120,18 @@ export default function Experience() {
             <span className='extark-time'>Summer 2022</span>
           </TimelineOppositeContent>
           <TimelineSeparator>
-            <TimelineConnector sx={{ bgcolor: 'success.main' }} />
+            <TimelineConnector sx={{ bgcolor: 'success.main', position: 'relative' }}>
+              <span className="white-cover" style={whiteCoverStyle} />
+            </TimelineConnector>
             <TimelineDot color="success" variant="outlined">
               <CodeIcon />
             </TimelineDot>
             <TimelineConnector sx={{
-              background: 'linear-gradient(90deg,rgba(46, 125, 50, 1) 51%, rgba(255, 195, 0, 1) 100%)'
-            }} />
+              background: 'linear-gradient(90deg,rgba(46, 125, 50, 1) 51%, rgba(255, 195, 0, 1) 100%)',
+              position: 'relative'
+            }}>
+              <span className="white-cover" style={whiteCoverStyle} />
+            </TimelineConnector>
           </TimelineSeparator>
           <TimelineContent sx={{ py: '12px', px: 2 }}>
             <Typography component="div">

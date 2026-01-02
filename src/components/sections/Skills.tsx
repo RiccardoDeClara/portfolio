@@ -1,17 +1,27 @@
 
-export default function Skills() {
+interface SkillsProps {
+  dict: {
+    section_title: string;
+    title: string;
+    subtitle: string;
+    dev_stack_title: string;
+    tools_title: string;
+  };
+}
+
+export default function Skills({ dict }: SkillsProps) {
   return (
     <section className={'skills'}>
       <div className="section-header">
-        <span>SKILLS</span>
+        <span>{dict.section_title}</span>
       </div>
 
       <div className={'content'}>
-        <h2 className={'title'}>Technical Proficiency</h2>
-        <p className={'subtitle'}>A constantly evolving stack to build modern web applications.</p>
+        <h2 className={'title'}>{dict.title}</h2>
+        <p className={'subtitle'}>{dict.subtitle}</p>
 
         <div className={'section'}>
-          <h3 className={'sectionTitle'}>Development Stack</h3>
+          <h3 className={'sectionTitle'}>{dict.dev_stack_title}</h3>
           <div className={'skillList'}>
             <span className={'skillItem'}>React</span>
             <span className={'skillItem'}>TypeScript</span>
@@ -26,7 +36,7 @@ export default function Skills() {
         </div>
 
         <div className={'section'}>
-          <h3 className={'sectionTitle'}>Tools & Workflow</h3>
+          <h3 className={'sectionTitle'}>{dict.tools_title}</h3>
           <div className={'skillList'}>
             <span className={'skillItem'}>Docker</span>
             <span className={'skillItem'}>Kubernetes</span>

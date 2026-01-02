@@ -3,12 +3,28 @@
 import { useState } from "react";
 
 
-export default function GetInTouch() {
-  const [status, setStatus] = useState("Submit");
+interface GetInTouchProps {
+  dict: {
+    section_title: string;
+    title: string;
+    first_name: string;
+    last_name: string;
+    email: string;
+    phone: string;
+    company: string;
+    message: string;
+    send_button: string;
+    sending: string;
+    submit: string;
+  };
+}
+
+export default function GetInTouch({ dict }: GetInTouchProps) {
+  const [status, setStatus] = useState(dict.submit);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus("Sending...");
+    setStatus(dict.sending);
 
     const form = e.currentTarget;
     const firstNameInput = form.elements.namedItem('firstName') as HTMLInputElement;
@@ -36,7 +52,7 @@ export default function GetInTouch() {
         body: JSON.stringify(details),
       });
 
-      setStatus("Submit");
+      setStatus(dict.submit);
       const result = await response.json();
       alert(result.status);
     } catch (error) {
@@ -49,45 +65,45 @@ export default function GetInTouch() {
   return (
     <section className={'contact'}>
       <div className="section-header">
-        <span>GET IN TOUCH</span>
+        <span>{dict.section_title}</span>
       </div>
 
-      <h2 className={'title'}>Let&apos;s Work <span>Together</span></h2>
+      <h2 className={'title'}>{dict.title} <span>Together</span></h2>
 
       <div className={'formContainer'}>
         <form onSubmit={handleSubmit}>
           <div className={'formGroup'}>
             <input type="text" id="firstName" name="firstName" placeholder=" " required />
-            <label htmlFor="firstName">First name<sup>*</sup></label>
+            <label htmlFor="firstName">{dict.first_name}<sup>*</sup></label>
           </div>
 
           <div className={'formGroup'}>
             <input type="text" id="lastName" name="lastName" placeholder=" " />
-            <label htmlFor="surname">Last name</label>
+            <label htmlFor="surname">{dict.last_name}</label>
           </div>
 
           <div className={'formGroup'}>
             <input type="email" id="email" name="email" placeholder=" " required />
-            <label htmlFor="email">Email<sup>*</sup></label>
+            <label htmlFor="email">{dict.email}<sup>*</sup></label>
           </div>
 
           <div className={'formGroup'}>
             <input type="text" id="phone" name="phone" placeholder=" " />
-            <label htmlFor="phone">Phone</label>
+            <label htmlFor="phone">{dict.phone}</label>
           </div>
 
           <div className={'formGroup'}>
             <input type="text" id="company" name="company" placeholder=" " />
-            <label htmlFor="company">Company</label>
+            <label htmlFor="company">{dict.company}</label>
           </div>
 
           <div className={'formGroup'}>
             <textarea id="message" name="message" placeholder=" "></textarea>
-            <label htmlFor="message">Message</label>
+            <label htmlFor="message">{dict.message}</label>
           </div>
 
-          <button type="submit" className={`submitButton glass-button`} disabled={status === "Sending..." || status === "Sent"}>
-            {status === "Submit" ? "Send Message" : status}
+          <button type="submit" className={`submitButton glass-button`} disabled={status === dict.sending || status === "Sent"}>
+            {status === dict.submit ? dict.send_button : status}
           </button>
         </form>
       </div>

@@ -1,0 +1,61 @@
+{
+  "header": {
+    "home": "Home",
+    "about": "Chi Sono",
+    "experience": "Esperienza",
+    "skills": "Competenze",
+    "contact": "Contatti"
+  },
+  "hero": {
+    "greeting": "Ciao, sono",
+    "role": "Sviluppatore Front-End",
+    "description": "Ogni progetto è una sfida, ogni persona è un insegnante e ogni errore è una lezione: la mia ambizione è progredire ogni giorno, con umiltà, curiosità e dedizione, verso la migliore versione di me stesso e del mondo che voglio costruire.",
+    "cta_contact": "Contattami",
+    "cta_about": "Chi Sono"
+  },
+  "about": {
+    "section_title": "CHI SONO",
+    "title": "Chi Sono",
+    "subtitle": "Sviluppatore Front-End appassionato con base in Italia",
+    "text1": "Ho conseguito il diploma presso l'Istituto Tecnico Antonio Zanon di Udine, Italia, con una votazione finale di 86/100, specializzandomi in Sistemi Informativi Aziendali. Durante i miei studi ho sviluppato competenze in linguaggi di programmazione come C++, PHP, HTML, CSS, JavaScript e SQL.",
+    "text2": "Ho avuto l'opportunità di partecipare al progetto europeo PON - “logica-mente”, incentrato sullo sviluppo del pensiero computazionale, della creatività digitale e delle capacità di problem-solving attraverso la creazione di applicazioni mobili. Inoltre, ho partecipato e vinto il contest “Pitch 120 secondi”, promosso da Friuli Innovazione e Comune di Udine, grazie a un'idea imprenditoriale originale e sostenibile. Il progetto è stato presentato in un team di due persone ed è stato riconosciuto per la qualità del pitch e la forza del modello di business.",
+    "text3": "Accanto al mio percorso scolastico e professionale, ho perseguito anche lo studio autodidatta, che mi ha permesso di acquisire conoscenze fondamentali in Docker e Kubernetes, avvicinandomi al campo DevOps, un'area di crescente interesse per me",
+    "experience_title": "Esperienza",
+    "experience_text": "Più di 3 anni nello sviluppo web e come sviluppatore Front-end.",
+    "education_title": "Istruzione",
+    "education_text": "Sistemi Informativi Aziendali.",
+    "connect_title": "Contatti",
+    "download_resume": "Scarica CV",
+    "linkedin_profile": "Profilo LinkedIn",
+    "email_label": "email"
+  },
+  "experience": {
+    "section_title": "ESPERIENZA",
+    "tecnoteca_time": "2022 - Presente",
+    "tecnoteca_role": "Sviluppatore Web",
+    "tecnoteca_desc": "Nel mio ruolo attuale, ho consolidato ed ampliato le mie competenze in JavaScript e React contribuendo allo sviluppo di progetti complessi, che hanno coinvolto anche l'integrazione di piattaforme CMS come Plone—richiedendo conoscenze backend in Python e sviluppo frontend in React e JavaScript—oltre a WordPress. Nel corso degli anni, ho partecipato allo sviluppo e alla manutenzione di siti web, concentrandomi sia sugli aspetti funzionali che sull'interfaccia grafica, con particolare attenzione all'accessibilità e alla user experience. Durante questa esperienza, ho acquisito familiarità quotidiana con strumenti di controllo versione come Git, utilizzando piattaforme come GitHub e GitLab. Ho anche sviluppato una conoscenza di base di Python e SQL, acquisendo esperienza nel lavoro di squadra e gestendo efficacemente le dinamiche tipiche dei moderni progetti frontend. Ultimo ma non meno importante, sono stato coinvolto nello sviluppo della UI per CMDBuild, il prodotto CMDB di punta di Tecnoteca Srl, sviluppato utilizzando JavaScript e il framework Sencha Ext JS.",
+    "extark_time": "Estate 2022",
+    "extark_role": "Sviluppatore Front-End",
+    "extark_desc": "La mia prima esperienza lavorativa è stata come consulente frontend. Durante questo ruolo iniziale ho lavorato come sviluppatore Frontend all'interno di un ambiente startup, focalizzato sull'uso di React e JavaScript. Questa opportunità mi ha permesso di affrontare il mondo del lavoro e aggiornare le mie conoscenze sviluppando interfacce utente moderne e responsive."
+  },
+  "skills": {
+    "section_title": "COMPETENZE",
+    "title": "Competenza Tecnica",
+    "subtitle": "Uno stack in continua evoluzione per costruire applicazioni web moderne.",
+    "dev_stack_title": "Stack di Sviluppo",
+    "tools_title": "Strumenti & Workflow"
+  },
+  "contact": {
+    "section_title": "CONTATTAMI",
+    "title": "Lavoriamo Insieme",
+    "first_name": "Nome",
+    "last_name": "Cognome",
+    "email": "Email",
+    "phone": "Telefono",
+    "company": "Azienda",
+    "message": "Messaggio",
+    "send_button": "Invia Messaggio",
+    "sending": "Invio in corso...",
+    "submit": "Invia"
+  }
+}

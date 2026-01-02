@@ -157,6 +157,10 @@ h6 {
     list-style: none;
     align-items: center;
 
+    li {
+      min-width: 4em;
+    }
+
     a {
       font-size: 0.9rem;
       font-weight: 500;

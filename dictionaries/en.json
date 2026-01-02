@@ -1,0 +1,61 @@
+{
+  "header": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "role": "Front-End Developer",
+    "description": "Every project is a challenge, every person is a teacher and every mistake is a lesson: my ambition is to progress every day, with umilty, curiosity, and dedication, toward the best version of myself and the world i want to build.",
+    "cta_contact": "Get In Touch",
+    "cta_about": "About Me"
+  },
+  "about": {
+    "section_title": "ABOUT ME",
+    "title": "Who I Am",
+    "subtitle": "Passionate Front-End Developer based in Italy",
+    "text1": "I obtained my diploma at the “Istituto Tecnico Antonio Zanon of udine, Italy, with a final grade of 86/100, specializing in Business Information Systems. During my studies i developed skills in programming languages such as C++, PHP, HTML, CSS, JavaScript and SQL.",
+    "text2": "I had the oportunity to partecipate to the european project PON - “logica-mente”, focused on developing computational thinking, digital creativity, and problem-solving skills through the creation of mobile applications. Additionaly, i took part and win the contentest “Pitch 120 secondi”, promoted by Friuli Innovazione and Comune di Udine, thanks to an original and sustainable entrepreneurial idea. The project was presented in a team of two, and it was recognized for the quality of the pitch and the strength of the business model.",
+    "text3": "Alongside my school and professional journey, I have also pursued self-directed study, which has allowed me to acquire foundational knowledge in Docker and Kubernetes, bringing me closer to the DevOps field, an area of growing interest to me",
+    "experience_title": "Experience",
+    "experience_text": "More than 3 Years in Web Development and as Front-end developer.",
+    "education_title": "Education",
+    "education_text": "Business Information Systems.",
+    "connect_title": "Connect",
+    "download_resume": "Download Resume",
+    "linkedin_profile": "LinkedIn Profile",
+    "email_label": "email"
+  },
+  "experience": {
+    "section_title": "EXPERIENCE",
+    "tecnoteca_time": "2022 - Present",
+    "tecnoteca_role": "Web Developer",
+    "tecnoteca_desc": "In my current role, I have consolidated and expanded my skills in JavaScript and React by contributing to the development of complex projects, which also involved integrating CMS platforms such as Plone—requiring backend knowledge in Python and frontend development in React and JavaScript—as well as WordPress. Over the years, I have participated in the development and maintenance of websites, focusing on both functional aspects and the graphical interface, with particular attention to accessibility and user experience. During this experience, I have gained daily familiarity with version control tools such as Git, using platforms like GitHub and GitLab. I have also developed a basic knowledge of Python and SQL, while gaining experience in teamwork and effectively managing the dynamics typical of modern frontend projects. Last but not least, I was also involved in the development of the UI for CMDBuild, the flagship CMDB product of Tecnoteca Srl, developed using JavaScript and the Sencha Ext JS framework.",
+    "extark_time": "Summer 2022",
+    "extark_role": "Front-End Developer",
+    "extark_desc": "My first work experience was as frontend consultant. During this initial role i worked as Frontend developer inside a startup environment, focused on React and JavaScript usage. This opportunity anables me to face the World’s job and upgrade my knowledge developing modern and responsive user interfaces."
+  },
+  "skills": {
+    "section_title": "SKILLS",
+    "title": "Technical Proficiency",
+    "subtitle": "A constantly evolving stack to build modern web applications.",
+    "dev_stack_title": "Development Stack",
+    "tools_title": "Tools & Workflow"
+  },
+  "contact": {
+    "section_title": "GET IN TOUCH",
+    "title": "Let's Work Together",
+    "first_name": "First name",
+    "last_name": "Last name",
+    "email": "Email",
+    "phone": "Phone",
+    "company": "Company",
+    "message": "Message",
+    "send_button": "Send Message",
+    "sending": "Sending...",
+    "submit": "Submit"
+  }
+}

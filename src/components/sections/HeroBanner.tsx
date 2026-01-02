@@ -1,26 +1,34 @@
 import Image from 'next/image';
 import rdc_image from '../../../public/me.jpeg';
 
-export default function HeroBanner() {
+interface HeroBannerProps {
+  dict: {
+    greeting: string;
+    role: string;
+    description: string;
+    cta_contact: string;
+    cta_about: string;
+  };
+}
+
+export default function HeroBanner({ dict }: HeroBannerProps) {
   return (
     <section className={'hero'}>
       <div style={{ padding: '2rem' }}>
-        <p className={'greeting'}>Hello, I&apos;m</p>
+        <p className={'greeting'}>{dict.greeting}</p>
         <h1 className={'name'}>
           Riccardo<br />
           <span>De Clara</span>
         </h1>
-        <p className={'role'}>Front-End Developer</p>
+        <p className={'role'}>{dict.role}</p>
         <p className={'description'}>
-          Every project is a challenge, every person is a teacher and every mistake is a lesson:
-          my ambition is to progress every day, with umilty, curiosity, and dedication, toward
-          the best version of myself and the world i want to build.
+          {dict.description}
         </p>
 
         <div className={'actions'}>
-          <a href="#contact" className="btn-primary">Get In Touch</a>
+          <a href="#contact" className="btn-primary">{dict.cta_contact}</a>
           <a href="#about" className="btn-secondary">
-            About Me
+            {dict.cta_about}
           </a>
         </div>
       </div>

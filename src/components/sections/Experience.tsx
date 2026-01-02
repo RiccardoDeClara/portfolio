@@ -17,7 +17,19 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Experience() {
+interface ExperienceProps {
+  dict: {
+    section_title: string;
+    tecnoteca_time: string;
+    tecnoteca_role: string;
+    tecnoteca_desc: string;
+    extark_time: string;
+    extark_role: string;
+    extark_desc: string;
+  };
+}
+
+export default function Experience({ dict }: ExperienceProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
@@ -58,7 +70,7 @@ export default function Experience() {
   return (
     <section ref={containerRef}>
       <div className="section-header">
-        <span>EXPERIENCE</span>
+        <span>{dict.section_title}</span>
       </div>
       <Timeline position={'alternate'}
         sx={{}}
@@ -68,7 +80,7 @@ export default function Experience() {
             sx={{ m: 'auto 0' }}
             variant="h6"
           >
-            <span className='tecnoteca-time'>2022 - Present</span>
+            <span className='tecnoteca-time'>{dict.tecnoteca_time}</span>
           </TimelineOppositeContent>
           <TimelineSeparator>
             <TimelineConnector sx={{ bgcolor: 'primary.main', position: 'relative' }}>
@@ -89,12 +101,9 @@ export default function Experience() {
                     Tecnoteca Srl
                   </Typography>
                 </div>
-                <h3 className={'role'}>Web Developer</h3>
+                <h3 className={'role'}>{dict.tecnoteca_role}</h3>
                 <p className={'text'}>
-                  In my current role, I have consolidated and expanded my skills in JavaScript and React by contributing to the development of complex projects, which also involved integrating CMS platforms such as Plone—requiring backend knowledge in Python and frontend development in React and JavaScript—as well as WordPress.<br />
-                  Over the years, I have participated in the development and maintenance of websites, focusing on both functional aspects and the graphical interface, with particular attention to accessibility and user experience.<br />
-                  During this experience, I have gained daily familiarity with version control tools such as Git, using platforms like GitHub and GitLab. I have also developed a basic knowledge of Python and SQL, while gaining experience in teamwork and effectively managing the dynamics typical of modern frontend projects.<br />
-                  Last but not least, I was also involved in the development of the UI for CMDBuild, the flagship CMDB product of Tecnoteca Srl, developed using JavaScript and the Sencha Ext JS framework.
+                  {dict.tecnoteca_desc}
                 </p>
                 <div className={'tags'}>
                   <span className={'tag'}>React</span>
@@ -117,7 +126,7 @@ export default function Experience() {
             sx={{ m: 'auto 0' }}
             variant="h6"
           >
-            <span className='extark-time'>Summer 2022</span>
+            <span className='extark-time'>{dict.extark_time}</span>
           </TimelineOppositeContent>
           <TimelineSeparator>
             <TimelineConnector sx={{ bgcolor: 'success.main', position: 'relative' }}>
@@ -141,13 +150,9 @@ export default function Experience() {
                     Extark Srl
                   </Typography>
                 </div>
-                <h3 className={'role'}>Front-End Developer</h3>
+                <h3 className={'role'}>{dict.extark_role}</h3>
                 <p className={'text'}>
-                  My first work e xperience was as frontend consultant.
-                  During this initial role i worked as Frontend developer inside a startup
-                  environment, focused on React and JavaScript usage. <br />
-                  This opportunity anables me to face the World’s job and upgrade my knowledge
-                  developing modern and responsive user interfaces.
+                  {dict.extark_desc}
                 </p>
                 <div className={'tags justify-content-end'}>
                   <span className={'tag'}>HTML5</span>

@@ -4,22 +4,27 @@ import { sendMail, validateInputs } from '@/lib/email-transporter'
 
 export async function sendContactEmail(formData: FormData) {
   const email = formData.get('email') as string
-  const name = formData.get('name') as string
-  const contents = formData.get('message') as string // Changed from 'contents' to 'message' to match form
+  const firstName = formData.get('firstName') as string
+  const lastName = formData.get('lastName') as string
+  const phone = formData.get('phone') as string
+  const company = formData.get('company') as string
+  const contents = formData.get('message') as string
 
   try {
-    await validateInputs({ email, contents, name })
-    const info = await sendMail({ email, contents, name })
+    await validateInputs({ email, contents, firstName, lastName, phone, company })
+    const info = await sendMail({ email, contents, firstName, lastName, phone, company })
 
     if (info && typeof info === 'object' && 'error' in info && info.error) {
       return { success: false, message: info.error.message || 'Failed to send email' }
     }
 
     let messageId = 'sent';
-    if (info && 'data' in info && info.data?.id) {
-      messageId = info.data.id;
-    } else if (info && 'messageId' in info) {
-      messageId = (info as { messageId: string }).messageId;
+    const infoAny = info as any;
+
+    if (infoAny && infoAny.data && infoAny.data.id) {
+      messageId = infoAny.data.id;
+    } else if (infoAny && infoAny.messageId) {
+      messageId = infoAny.messageId;
     }
 
     return { success: true, messageId }

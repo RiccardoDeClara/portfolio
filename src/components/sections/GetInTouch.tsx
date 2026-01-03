@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import { sendContactEmail } from "@/app/actions";
 
 interface GetInTouchProps {
   dict: {
@@ -27,38 +28,28 @@ export default function GetInTouch({ dict }: GetInTouchProps) {
     setStatus(dict.sending);
 
     const form = e.currentTarget;
-    const firstNameInput = form.elements.namedItem('firstName') as HTMLInputElement;
-    const lastNameInput = form.elements.namedItem('lastName') as HTMLInputElement;
-    const emailInput = form.elements.namedItem('email') as HTMLInputElement;
-    const phoneInput = form.elements.namedItem('phone') as HTMLInputElement;
-    const companyInput = form.elements.namedItem('company') as HTMLInputElement;
-    const messageInput = form.elements.namedItem('message') as HTMLTextAreaElement;
-
-    const details = {
-      firstName: firstNameInput.value,
-      lastName: lastNameInput.value,
-      email: emailInput.value,
-      phone: phoneInput.value,
-      company: companyInput.value,
-      message: messageInput.value,
-    };
+    const formData = new FormData(form);
 
     try {
-      const response = await fetch("http://localhost:5001/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json;charset=utf-8",
-        },
-        body: JSON.stringify(details),
-      });
+      const result = await sendContactEmail(formData);
 
-      setStatus(dict.submit);
-      const result = await response.json();
-      alert(result.status);
+      if (result.success) {
+        setStatus("Sent");
+        alert("Message Sent");
+        form.reset();
+      } else {
+        setStatus(dict.submit);
+        alert(result.message || "Failed to send message");
+      }
     } catch (error) {
       console.error("Error sending message:", error);
       setStatus("Error");
       alert("Failed to send message");
+    } finally {
+      // Reset status after a delay if needed, or keep it as "Sent"
+      if (status !== "Sent") {
+        setStatus(dict.submit);
+      }
     }
   };
 

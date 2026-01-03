@@ -1,17 +1,27 @@
-const express = require("express");
-const router = express.Router();
-const cors = require("cors");
-const nodemailer = require("nodemailer");
-require("dotenv").config();
+import nodemailer from 'nodemailer';
 
-const app = express();
+type EmailPayload = {
+  email: string;
+  firstName: string;
+  lastName: string;
+  phone: string;
+  company: string;
+  contents: string;
+};
 
-app.use(cors());
-app.use(express.json());
-app.use("/", router);
-app.listen(5001, () => console.log("Server Running on port 5001"));
+export async function validateInputs(data: EmailPayload) {
+  const { email, firstName } = data;
 
-const contactEmail = nodemailer.createTransport({
+  if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+    throw new Error('Invalid email address');
+  }
+
+  if (!firstName) {
+    throw new Error('First name must be at least 2 characters long');
+  }
+}
+
+const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: process.env.EMAIL_USER,
@@ -19,26 +29,11 @@ const contactEmail = nodemailer.createTransport({
   },
 });
 
-contactEmail.verify((error) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log("Ready to Send");
-  }
-});
+export async function sendMail(data: EmailPayload) {
+  const { email, firstName, lastName, phone, company, contents } = data;
+  const name = firstName + " " + lastName;
 
-router.get("/", (req, res) => {
-  res.send("Contact Server is Running");
-});
-
-router.post("/contact", (req, res) => {
-  const name = req.body.firstName + " " + req.body.lastName;
-  const email = req.body.email;
-  const phone = req.body.phone;
-  const company = req.body.company;
-  const message = req.body.message; 
-
-  const mail = {
+  const mailOptions = {
     from: process.env.EMAIL_USER,
     to: process.env.EMAIL_USER,
     subject: "Contact Form - Portfolio",
@@ -143,15 +138,15 @@ router.post("/contact", (req, res) => {
           <div class="info-group">
             <div class="label">📱 Phone</div>
             <div class="value">
-              <a href="tel:${phone}" style="color: #667eea; text-decoration: none;">
-                ${phone}
+              <a href="tel:${phone || ''}" style="color: #667eea; text-decoration: none;">
+                ${phone || ''}
               </a>
             </div>
           </div>
 
           <div class="info-group">
             <div class="label">🏢 Company</div>
-            <div class="value">${company}</div>
+            <div class="value">${company || ''}</div>
           </div>
 
           <div class="divider"></div>
@@ -159,7 +154,7 @@ router.post("/contact", (req, res) => {
           <div class="message-section">
             <div class="label">💬 Message</div>
             <div class="value" style="margin-top: 10px; line-height: 1.6;">
-              ${message.replace(/\n/g, '<br>')}
+              ${contents.replace(/\n/g, '<br>') || ''}
             </div>
           </div>
         </div>
@@ -172,13 +167,14 @@ router.post("/contact", (req, res) => {
       </div>
     </body>
     </html>
-  `,
+    `,
   };
-  contactEmail.sendMail(mail, (error) => {
-    if (error) {
-      res.json({ status: "ERROR" });
-    } else {
-      res.json({ status: "Message Sent", email: mail });
-    }
-  });
-});
+
+  try {
+    const info = await transporter.sendMail(mailOptions);
+    return info;
+  } catch (error) {
+    console.error('Error sending email:', error);
+    return { error: error instanceof Error ? error : new Error('Unknown error sending email') };
+  }
+}

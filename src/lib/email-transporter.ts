@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 
 type EmailPayload = {
   email: string;
@@ -21,14 +22,6 @@ export async function validateInputs(data: EmailPayload) {
   }
 }
 
-// Log environment variables (sanitized)
-console.log('=== EMAIL CONFIGURATION DEBUG ===');
-console.log('EMAIL_USER exists:', !!process.env.EMAIL_USER);
-console.log('EMAIL_PASS exists:', !!process.env.EMAIL_PASS);
-console.log('EMAIL_USER value (first 3 chars):', process.env.EMAIL_USER?.substring(0, 3) || 'MISSING');
-console.log('NODE_ENV:', process.env.NODE_ENV);
-console.log('================================');
-
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 587,
@@ -46,17 +39,29 @@ const transporter = nodemailer.createTransport({
 });
 
 export async function sendMail(data: EmailPayload) {
-  console.log('=== ATTEMPTING TO SEND EMAIL ===');
-  console.log('From:', process.env.EMAIL_USER);
-  console.log('To:', data.email);
+  const emailUser = process.env.EMAIL_USER;
+
+  if (!emailUser) {
+    console.error('❌ Error: EMAIL_USER environment variable is not set');
+    return { error: new Error('Server configuration error') };
+  }
 
   const { email, firstName, lastName, phone, company, contents } = data;
   const name = firstName + " " + lastName;
 
   const mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER,
+    from: emailUser,
+    to: emailUser,
     subject: "Contact Form - Portfolio",
+    text: `
+      Name: ${name}
+      Email: ${email}
+      Phone: ${phone || 'N/A'}
+      Company: ${company || 'N/A'}
+      
+      Message:
+      ${contents}
+    `,
     html: `
     <!DOCTYPE html>
     <html lang="en">
@@ -182,8 +187,8 @@ export async function sendMail(data: EmailPayload) {
 
   try {
     console.log('Attempting to send email...');
-    const info = await transporter.sendMail(mailOptions);
-    console.log('✅ Email sent successfully:', info.messageId);
+    const resend = new Resend(process.env.API_KEY);
+    const info = await resend.emails.send(mailOptions);
     return info;
   } catch (error) {
     console.error('❌ Error sending email:', error);

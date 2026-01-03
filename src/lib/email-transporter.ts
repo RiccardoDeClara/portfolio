@@ -29,7 +29,7 @@ console.log('EMAIL_USER value (first 3 chars):', process.env.EMAIL_USER?.substri
 console.log('NODE_ENV:', process.env.NODE_ENV);
 console.log('================================');
 
-const transporter = nodemailer.createTransporter({
+const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 587,
   secure: false,

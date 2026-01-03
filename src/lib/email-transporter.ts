@@ -1,4 +1,3 @@
-import nodemailer from 'nodemailer';
 import { Resend } from 'resend';
 
 type EmailPayload = {
@@ -22,28 +21,18 @@ export async function validateInputs(data: EmailPayload) {
   }
 }
 
-const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-  tls: {
-    rejectUnauthorized: false
-  },
-  connectionTimeout: 10000, // 10 seconds
-  greetingTimeout: 10000,
-  socketTimeout: 10000
-});
-
 export async function sendMail(data: EmailPayload) {
   const emailUser = process.env.EMAIL_USER;
+  const apiKey = process.env.API_KEY;
 
   if (!emailUser) {
     console.error('❌ Error: EMAIL_USER environment variable is not set');
-    return { error: new Error('Server configuration error') };
+    return { error: new Error('Server configuration error: EMAIL_USER missing') };
+  }
+
+  if (!apiKey) {
+    console.error('❌ Error: API_KEY environment variable is not set');
+    return { error: new Error('Server configuration error: API_KEY missing') };
   }
 
   const { email, firstName, lastName, phone, company, contents } = data;
@@ -187,7 +176,7 @@ export async function sendMail(data: EmailPayload) {
 
   try {
     console.log('Attempting to send email...');
-    const resend = new Resend(process.env.API_KEY);
+    const resend = new Resend(apiKey);
     const info = await resend.emails.send(mailOptions);
     return info;
   } catch (error) {

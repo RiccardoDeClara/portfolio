@@ -1,7 +1,4 @@
 import nodemailer from 'nodemailer';
-import dotenv from 'dotenv';
-
-dotenv.config({ path: '/etc/secrets/.env' });
 
 type EmailPayload = {
   email: string;

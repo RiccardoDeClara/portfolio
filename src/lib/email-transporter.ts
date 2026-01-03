@@ -21,7 +21,15 @@ export async function validateInputs(data: EmailPayload) {
   }
 }
 
-const transporter = nodemailer.createTransport({
+// Log environment variables (sanitized)
+console.log('=== EMAIL CONFIGURATION DEBUG ===');
+console.log('EMAIL_USER exists:', !!process.env.EMAIL_USER);
+console.log('EMAIL_PASS exists:', !!process.env.EMAIL_PASS);
+console.log('EMAIL_USER value (first 3 chars):', process.env.EMAIL_USER?.substring(0, 3) || 'MISSING');
+console.log('NODE_ENV:', process.env.NODE_ENV);
+console.log('================================');
+
+const transporter = nodemailer.createTransporter({
   host: 'smtp.gmail.com',
   port: 587,
   secure: false,
@@ -31,10 +39,17 @@ const transporter = nodemailer.createTransport({
   },
   tls: {
     rejectUnauthorized: false
-  }
+  },
+  connectionTimeout: 10000, // 10 seconds
+  greetingTimeout: 10000,
+  socketTimeout: 10000
 });
 
 export async function sendMail(data: EmailPayload) {
+  console.log('=== ATTEMPTING TO SEND EMAIL ===');
+  console.log('From:', process.env.EMAIL_USER);
+  console.log('To:', data.email);
+
   const { email, firstName, lastName, phone, company, contents } = data;
   const name = firstName + " " + lastName;
 
@@ -119,18 +134,14 @@ export async function sendMail(data: EmailPayload) {
     </head>
     <body>
       <div class="container">
-        <!-- Header -->
         <div class="header">
           <h1>📬 Portfolio Contact Form</h1>
         </div>
-
-        <!-- Content -->
         <div class="content">
           <div class="info-group">
             <div class="label">👤 Name</div>
             <div class="value">${name}</div>
           </div>
-
           <div class="info-group">
             <div class="label">📧 Email</div>
             <div class="value">
@@ -139,7 +150,6 @@ export async function sendMail(data: EmailPayload) {
               </a>
             </div>
           </div>
-
           <div class="info-group">
             <div class="label">📱 Phone</div>
             <div class="value">
@@ -148,14 +158,11 @@ export async function sendMail(data: EmailPayload) {
               </a>
             </div>
           </div>
-
           <div class="info-group">
             <div class="label">🏢 Company</div>
             <div class="value">${company || ''}</div>
           </div>
-
           <div class="divider"></div>
-
           <div class="message-section">
             <div class="label">💬 Message</div>
             <div class="value" style="margin-top: 10px; line-height: 1.6;">
@@ -163,8 +170,6 @@ export async function sendMail(data: EmailPayload) {
             </div>
           </div>
         </div>
-
-        <!-- Footer -->
         <div class="footer">
           <p>This is an automated email from your portfolio contact form.</p>
           <p>&copy; 2024 Your Portfolio. All rights reserved.</p>
@@ -176,10 +181,17 @@ export async function sendMail(data: EmailPayload) {
   };
 
   try {
+    console.log('Attempting to send email...');
     const info = await transporter.sendMail(mailOptions);
+    console.log('✅ Email sent successfully:', info.messageId);
     return info;
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error('❌ Error sending email:', error);
+    console.error('Error details:', {
+      message: error instanceof Error ? error.message : 'Unknown error',
+      code: (error as any).code,
+      command: (error as any).command
+    });
     return { error: error instanceof Error ? error : new Error('Unknown error sending email') };
   }
 }

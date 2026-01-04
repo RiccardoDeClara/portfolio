@@ -184,7 +184,6 @@ export async function sendMail(data: EmailPayload) {
   };
 
   try {
-    console.log('Attempting to send email via Gmail...');
     const info = await transporter.sendMail(mailOptions);
 
     return info;

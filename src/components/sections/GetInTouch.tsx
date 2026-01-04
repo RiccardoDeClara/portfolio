@@ -8,6 +8,7 @@ interface GetInTouchProps {
   dict: {
     section_title: string;
     title: string;
+    text: string;
     first_name: string;
     last_name: string;
     email: string;

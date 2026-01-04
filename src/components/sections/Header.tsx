@@ -48,7 +48,7 @@ export default function Header({ dict, lang }: HeaderProps) {
           <li><a href="#about">{dict.about}</a></li>
           <li><a href="#experience">{dict.experience}</a></li>
           <li><a href="#skills">{dict.skills}</a></li>
-          <li><a href="#contact" className="btn-primary small">{dict.contact}</a></li>
+          <li><a href={`mailto:${process.env.GMAIL_USER}?subject=Riccardo%20De%20Clara%20-%20Portfolio`} target="_blank" className="btn-primary small">{dict.contact}</a></li>
           <li className="d-flex">
             <i className="bi bi-translate px-1 d-flex align-items-center">
             </i>

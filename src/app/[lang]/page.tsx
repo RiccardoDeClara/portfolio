@@ -22,7 +22,7 @@ export default async function Home({ params }: { params: Promise<{ lang: 'en' | 
         <div id="about"><AboutMe dict={dict.about} /></div>
         <div id="experience"><Experience dict={dict.experience} /></div>
         <div id="skills"><Skills dict={dict.skills} /></div>
-        <div id="contact"><GetInTouch dict={dict.contact} /></div>
+        {/* <div id="contact"><GetInTouch dict={dict.contact} /></div> */}
       </main>
     </div>
   );

@@ -1,4 +1,4 @@
-import { Resend } from 'resend';
+import nodemailer from 'nodemailer';
 
 type EmailPayload = {
   email: string;
@@ -22,25 +22,34 @@ export async function validateInputs(data: EmailPayload) {
 }
 
 export async function sendMail(data: EmailPayload) {
-  const emailUser = process.env.EMAIL_USER;
-  const apiKey = process.env.API_KEY;
+  const gmailUser = process.env.GMAIL_USER;
+  const gmailAppPassword = process.env.GMAIL_APP_PASSWORD;
 
-  if (!emailUser) {
-    console.error('❌ Error: EMAIL_USER environment variable is not set');
-    return { error: new Error('Server configuration error: EMAIL_USER missing') };
+  if (!gmailUser) {
+    console.error('❌ Error: GMAIL_USER environment variable is not set');
+    return { error: new Error('Server configuration error: GMAIL_USER missing') };
   }
 
-  if (!apiKey) {
-    console.error('❌ Error: API_KEY environment variable is not set');
-    return { error: new Error('Server configuration error: API_KEY missing') };
+  if (!gmailAppPassword) {
+    console.error('❌ Error: GMAIL_APP_PASSWORD environment variable is not set');
+    return { error: new Error('Server configuration error: GMAIL_APP_PASSWORD missing') };
   }
 
   const { email, firstName, lastName, phone, company, contents } = data;
   const name = firstName + " " + lastName;
 
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: gmailUser,
+      pass: gmailAppPassword,
+    },
+  });
+
   const mailOptions = {
-    from: emailUser,
-    to: emailUser,
+    from: gmailUser,
+    to: gmailUser,
+    replyTo: email,
     subject: "Contact Form - Portfolio",
     text: `
       Name: ${name}
@@ -175,17 +184,12 @@ export async function sendMail(data: EmailPayload) {
   };
 
   try {
-    console.log('Attempting to send email...');
-    const resend = new Resend(apiKey);
-    const info = await resend.emails.send(mailOptions);
+    console.log('Attempting to send email via Gmail...');
+    const info = await transporter.sendMail(mailOptions);
+
     return info;
   } catch (error) {
     console.error('❌ Error sending email:', error);
-    console.error('Error details:', {
-      message: error instanceof Error ? error.message : 'Unknown error',
-      code: (error as any).code,
-      command: (error as any).command
-    });
     return { error: error instanceof Error ? error : new Error('Unknown error sending email') };
   }
 }

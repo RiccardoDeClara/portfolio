@@ -39,11 +39,14 @@ export async function sendMail(data: EmailPayload) {
   const name = firstName + " " + lastName;
 
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
     auth: {
       user: gmailUser,
       pass: gmailAppPassword,
     },
+    connectionTimeout: 10000,
   });
 
   const mailOptions = {

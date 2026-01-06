@@ -18,7 +18,7 @@ export default function Skills({ dict }: SkillsProps) {
 
       <div className={'content'}>
         <h2 className={'title'}>{dict.title}</h2>
-        <p className={'subtitle'}>{dict.subtitle}</p>
+        <p className={'subtitle text-center'}>{dict.subtitle}</p>
 
         <div className={'section'}>
           <h3 className={'sectionTitle'}>{dict.dev_stack_title}</h3>
@@ -31,7 +31,6 @@ export default function Skills({ dict }: SkillsProps) {
             <span className={'skillItem'}>Bootstrap</span>
             <span className={'skillItem'}>Python</span>
             <span className={'skillItem'}>Node.js</span>
-            <span className={'skillItem'}>Next.js</span>
           </div>
         </div>
 
@@ -44,6 +43,8 @@ export default function Skills({ dict }: SkillsProps) {
             <span className={'skillItem'}>GitHub</span>
             <span className={'skillItem'}>GitLab</span>
             <span className={'skillItem'}>Figma</span>
+            <span className={'skillItem'}>Cucumber</span>
+            <span className={'skillItem'}>Selenium</span>
             <span className={'skillItem'}>Problem Solving</span>
           </div>
         </div>

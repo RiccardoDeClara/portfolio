@@ -1,13 +1,14 @@
 @use 'variables' as *;
 @use 'utilities' as *;
-@import 'buttons';
-@import 'GetInTouch';
-@import 'AboutMe';
-@import 'Experience';
-@import 'Skills';
-@import 'HeroBanner';
-@import 'LightDark';
-@import 'BlobCursor';
+@use 'buttons';
+@use 'GetInTouch';
+@use 'AboutMe';
+@use 'Experience';
+@use 'Skills';
+@use 'HeroBanner';
+@use 'LightDark';
+@use 'BlobCursor';
+@use 'FloatingIcons';
 
 :root {
   --foreground-rgb: 255, 255, 255;

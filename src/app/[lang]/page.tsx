@@ -1,6 +1,7 @@
 /* import sections */
 import Header from "../../components/sections/Header";
 import HeroBanner from "../../components/sections/HeroBanner";
+import FloatingIcons from "../../components/sections/FloatingIcons";
 import AboutMe from "../../components/sections/AboutMe";
 import Experience from "../../components/sections/Experience";
 import Skills from "../../components/sections/Skills";
@@ -15,10 +16,11 @@ export default async function Home({ params }: { params: Promise<{ lang: 'en' | 
 
   return (
     <div className="container">
-      <Header dict={dict.header} lang={lang} />
+      <Header dict={dict.header} lang={lang} email={process.env.GMAIL_USER} />
       <main>
+        <FloatingIcons />
         {/* <BlobCursor /> */}
-        <div id="hero"><HeroBanner dict={dict.hero} /></div>
+        <div id="hero"><HeroBanner dict={dict.hero} email={process.env.GMAIL_USER} /></div>
         <div id="about"><AboutMe dict={dict.about} /></div>
         <div id="experience"><Experience dict={dict.experience} /></div>
         <div id="skills"><Skills dict={dict.skills} /></div>

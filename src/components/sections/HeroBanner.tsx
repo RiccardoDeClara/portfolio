@@ -9,9 +9,10 @@ interface HeroBannerProps {
     cta_contact: string;
     cta_about: string;
   };
+  email?: string;
 }
 
-export default function HeroBanner({ dict }: HeroBannerProps) {
+export default function HeroBanner({ dict, email }: HeroBannerProps) {
   return (
     <section className={'hero'}>
       <div style={{ padding: '2rem' }}>
@@ -26,7 +27,7 @@ export default function HeroBanner({ dict }: HeroBannerProps) {
         </p>
 
         <div className={'actions'}>
-          <a href={`mailto:${process.env.GMAIL_USER}?subject=Riccardo%20De%20Clara%20-%20Portfolio`} target="_blank" className="btn-primary">{dict.cta_contact}</a>
+          <a href={`mailto:${email}?subject=Riccardo%20De%20Clara%20-%20Portfolio`} target="_blank" className="btn-primary">{dict.cta_contact}</a>
           <a href="#about" className="btn-secondary">
             {dict.cta_about}
           </a>

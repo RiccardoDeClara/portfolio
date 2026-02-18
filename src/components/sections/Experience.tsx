@@ -14,6 +14,7 @@ import TimelineOppositeContent, {
 } from '@mui/lab/TimelineOppositeContent';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import FloatingIcons from './FloatingIcons';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -69,6 +70,7 @@ export default function Experience({ dict }: ExperienceProps) {
 
   return (
     <section ref={containerRef}>
+      <FloatingIcons />
       <div className="section-header">
         <span>{dict.section_title}</span>
       </div>

@@ -11,10 +11,12 @@ interface HeaderProps {
     contact: string;
   };
   lang: 'en' | 'it';
+  email?: string;
 }
 
-export default function Header({ dict, lang }: HeaderProps) {
+export default function Header({ dict, lang, email }: HeaderProps) {
   const [theme, setTheme] = useState(true);
+  const [mounted, setMounted] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
 
@@ -33,6 +35,7 @@ export default function Header({ dict, lang }: HeaderProps) {
   };
 
   useEffect(() => {
+    setMounted(true);
     if (theme) {
       document.body.classList.add('dark-theme');
     } else {
@@ -48,7 +51,7 @@ export default function Header({ dict, lang }: HeaderProps) {
           <li><a href="#about">{dict.about}</a></li>
           <li><a href="#experience">{dict.experience}</a></li>
           <li><a href="#skills">{dict.skills}</a></li>
-          <li><a href={`mailto:${process.env.GMAIL_USER}?subject=Riccardo%20De%20Clara%20-%20Portfolio`} target="_blank" className="btn-primary small">{dict.contact}</a></li>
+          <li><a href={`mailto:${email}?subject=Riccardo%20De%20Clara%20-%20Portfolio`} target="_blank" className="btn-primary small">{dict.contact}</a></li>
           <li className="d-flex">
             <i className="bi bi-translate px-1 d-flex align-items-center">
             </i>

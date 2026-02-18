@@ -1,3 +1,6 @@
+"use client";
+import Image from 'next/image';
+import { Tooltip } from 'react-tooltip';
 
 interface SkillsProps {
   dict: {
@@ -10,6 +13,7 @@ interface SkillsProps {
 }
 
 export default function Skills({ dict }: SkillsProps) {
+
   return (
     <section className={'skills'}>
       <div className="section-header">
@@ -23,29 +27,205 @@ export default function Skills({ dict }: SkillsProps) {
         <div className={'section'}>
           <h3 className={'sectionTitle'}>{dict.dev_stack_title}</h3>
           <div className={'skillList'}>
-            <span className={'skillItem'}>React</span>
-            <span className={'skillItem'}>TypeScript</span>
-            <span className={'skillItem'}>JavaScript (ES6+)</span>
-            <span className={'skillItem'}>HTML5 & CSS3</span>
-            <span className={'skillItem'}>SASS/SCSS</span>
-            <span className={'skillItem'}>Bootstrap</span>
-            <span className={'skillItem'}>Python</span>
-            <span className={'skillItem'}>Node.js</span>
+            <span className={'skillItem'}>
+              <Image
+                src="/skills/react.svg"
+                alt="Skill Icon"
+                width={50}
+                height={50}
+                priority
+                data-tooltip-id="react"
+                data-tooltip-content="React"
+              />
+              <Tooltip id="react" />
+            </span>
+            <span className={'skillItem'}>
+              <Image
+                src="/skills/typescript.svg"
+                alt="Skill Icon"
+                width={50}
+                height={50}
+                priority
+                data-tooltip-id="typescript"
+                data-tooltip-content="TypeScript"
+              />
+              <Tooltip id="typescript" />
+            </span>
+            <span className={'skillItem'}>
+              <Image
+                src="/skills/javascript.svg"
+                alt="Skill Icon"
+                width={50}
+                height={50}
+                priority
+                data-tooltip-id="javascript"
+                data-tooltip-content="JavaScript (ES6+)"
+              />
+              <Tooltip id="javascript" />
+            </span>
+            <span className={'skillItem'}>
+              <Image
+                src="/skills/html5.svg"
+                alt="Skill Icon"
+                width={50}
+                height={50}
+                priority
+                data-tooltip-id="html5"
+                data-tooltip-content="HTML5"
+              />
+              <Tooltip id="html5" />
+            </span>
+            <span className={'skillItem'}>
+              <Image
+                src="/skills/sass.svg"
+                alt="Skill Icon"
+                width={50}
+                height={50}
+                priority
+                data-tooltip-id="sass"
+                data-tooltip-content="Sass/Scss"
+              />
+              <Tooltip id="sass" />
+            </span>
+            <span className={'skillItem'}>
+              <Image
+                src="/skills/bootstrap.svg"
+                alt="Skill Icon"
+                width={50}
+                height={50}
+                priority
+                data-tooltip-id="bootstrap"
+                data-tooltip-content="Bootstrap"
+              />
+              <Tooltip id="bootstrap" />
+            </span>
+            <span className={'skillItem'}>
+              <Image
+                src="/skills/python.svg"
+                alt="Skill Icon"
+                width={50}
+                height={50}
+                priority
+                data-tooltip-id="python"
+                data-tooltip-content="Python"
+              />
+              <Tooltip id="python" />
+            </span>
+            <span className={'skillItem'}>
+              <Image
+                src="/skills/nodejs.svg"
+                alt="Skill Icon"
+                width={50}
+                height={50}
+                priority
+                data-tooltip-id="nodejs"
+                data-tooltip-content="Node.js"
+              />
+              <Tooltip id="nodejs" />
+            </span>
           </div>
         </div>
 
         <div className={'section'}>
           <h3 className={'sectionTitle'}>{dict.tools_title}</h3>
           <div className={'skillList'}>
-            <span className={'skillItem'}>Docker</span>
-            <span className={'skillItem'}>Kubernetes</span>
-            <span className={'skillItem'}>Git</span>
-            <span className={'skillItem'}>GitHub</span>
-            <span className={'skillItem'}>GitLab</span>
-            <span className={'skillItem'}>Figma</span>
-            <span className={'skillItem'}>Cucumber</span>
-            <span className={'skillItem'}>Selenium</span>
-            <span className={'skillItem'}>Problem Solving</span>
+            <span className={'skillItem'}>
+              <Image
+                src="/skills/docker.svg"
+                alt="Skill Icon"
+                width={50}
+                height={50}
+                priority
+                data-tooltip-id="docker"
+                data-tooltip-content="Docker"
+              />
+              <Tooltip id="docker" />
+            </span>
+            <span className={'skillItem'}>
+              <Image
+                src="/skills/kubernetes.svg"
+                alt="Skill Icon"
+                width={50}
+                height={50}
+                priority
+                data-tooltip-id="kubernetes"
+                data-tooltip-content="Kubernetes"
+              />
+              <Tooltip id="kubernetes" />
+            </span>
+            <span className={'skillItem'}>
+              <Image
+                src="/skills/git.svg"
+                alt="Skill Icon"
+                width={50}
+                height={50}
+                priority
+                data-tooltip-id="git"
+                data-tooltip-content="Git"
+              />
+              <Tooltip id="git" />
+            </span>
+            <span className={'skillItem'}>
+              <Image
+                src="/skills/github.svg"
+                alt="Skill Icon"
+                width={50}
+                height={50}
+                priority
+                data-tooltip-id="github"
+                data-tooltip-content="GitHub"
+              />
+              <Tooltip id="github" />
+            </span>
+            <span className={'skillItem'}>
+              <Image
+                src="/skills/gitlab.svg"
+                alt="Skill Icon"
+                width={50}
+                height={50}
+                priority
+                data-tooltip-id="gitlab"
+                data-tooltip-content="GitLab"
+              />
+              <Tooltip id="gitlab" />
+            </span>
+            <span className={'skillItem'}>
+              <Image
+                src="/skills/figma.svg"
+                alt="Skill Icon"
+                width={50}
+                height={50}
+                priority
+                data-tooltip-id="figma"
+                data-tooltip-content="Figma"
+              />
+              <Tooltip id="figma" />
+            </span>
+            <span className={'skillItem'}>
+              <Image
+                src="/skills/cucumber.svg"
+                alt="Skill Icon"
+                width={50}
+                height={50}
+                priority
+                data-tooltip-id="cucumber"
+                data-tooltip-content="Cucumber"
+              />
+              <Tooltip id="cucumber" />
+            </span>
+            <span className={'skillItem'}>
+              <Image
+                src="/skills/selenium.webp"
+                alt="Skill Icon"
+                width={50}
+                height={50}
+                priority
+                data-tooltip-id="selenium"
+                data-tooltip-content="Selenium"
+              />
+              <Tooltip id="selenium" />
+            </span>
+            {/* <span className={'skillItem'}>Problem Solving</span> */}
           </div>
         </div>
       </div>

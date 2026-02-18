@@ -1,0 +1,96 @@
+@use 'variables' as *;
+
+.floating-icons-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.floating-icon {
+  position: absolute;
+  opacity: 0.1;
+  filter: blur(2px) saturate(1.5);
+  -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.2) 100%);
+  mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.2) 100%);
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
+  }
+
+  &.left-0 {
+    left: 8%;
+  }
+
+  &.left-1 {
+    left: 38%;
+  }
+
+  &.left-2 {
+    left: 12%;
+  }
+
+  &.right-0 {
+    right: 4%;
+  }
+
+  &.right-1 {
+    right: 10%;
+  }
+
+  &.right-2 {
+    right: 32%;
+  }
+}
+
+/* Specific positions for each icon to look balanced */
+.icon-0 {
+  top: 35%;
+  width: 120px;
+  opacity: 0.1;
+}
+
+.icon-1 {
+  top: 56%;
+  width: 130px;
+  opacity: 0.1;
+}
+
+.icon-2 {
+  top: 75%;
+  width: 130px;
+  left: 6%;
+  opacity: 0.1;
+}
+
+.icon-3 {
+  top: 45%;
+  width: 160px;
+  opacity: 0.1;
+}
+
+.icon-4 {
+  top: 84%;
+  width: 150px;
+  opacity: 0.1;
+}
+
+.icon-5 {
+  top: 80%;
+  width: 180px;
+  opacity: 0.1;
+}
+
+@media (max-width: 992px) {
+  .floating-icon {
+    display: none;
+    /* Hide on small screens or make them smaller */
+  }
+}
